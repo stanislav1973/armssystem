@@ -42,11 +42,14 @@ public class DemandController {
     }
     @PostMapping
     public String sendMessage(@Valid Demand demand, @ModelAttribute StatusDemand statusDemands){
-//        jpaDemandRepo.saveStatusDemand(demand);
-//        log.info("Testttttt " + demand);
+
         demand.setAccepted("принята");
-        demandRepo.save(demand);
-        return "redirect:/index";
+        Demand f  = demandRepo.save(demand);
+            statusDemands.setDemand_id(f.getId());
+            statusDemands.setDemand_list_id(f.getId());
+        log.info("TESTING " + statusDemands);
+            statusDemandRepo.save(statusDemands);
+            return "redirect:/index";
     }
 
 }

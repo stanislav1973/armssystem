@@ -15,6 +15,7 @@
         <table>
             <thead>
             <tr>
+                <th>Номер заявки</th>
                 <th>Описание заявки </th>
                 <th>Статус</th>
                 <th>Фамилия</th>
@@ -25,6 +26,7 @@
             </thead>
             <tbody>
             <tr th:each="u: ${tDemand}">
+                <td th:text="${u.id}"></td>
                 <td th:text="${u.demand_desc}"></td>
                 <td th:text="${u.status}"></td>
                 <td th:text="${u.user}"></td>

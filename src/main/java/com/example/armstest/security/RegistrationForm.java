@@ -16,7 +16,7 @@ public Admin toAdmin(PasswordEncoder passwordEncoder) {
     Admin admin = new Admin();
     admin.setUsername(username);
     admin.setPassword(passwordEncoder.encode(password));
-    admin.setRoles(Collections.singleton(Role.ADMIN));
+    //admin.setRoles(Collections.singleton(Role.ADMIN));
     return admin;
 }
 }

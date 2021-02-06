@@ -9,9 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DemandRepo extends CrudRepository<Demand,Long> {
-//    @Modifying
-//    @Query("update Demand o set o.status=:status where o.id=:id")
-//    void saveStatus(String demand);
-
 }
 

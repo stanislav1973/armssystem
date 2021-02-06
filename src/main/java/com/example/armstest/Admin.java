@@ -26,16 +26,16 @@ public class Admin implements UserDetails{
     private String build;
     private String office;
 
-    @Enumerated(EnumType.STRING)
-    @ElementCollection(targetClass = Role.class,fetch = FetchType.EAGER)
-    @CollectionTable(name = "admin_roles")
-    private Set<Role>roles = new HashSet<>();
+//    @Enumerated(EnumType.STRING)
+//    @ElementCollection(targetClass = Role.class,fetch = FetchType.EAGER)
+//    @CollectionTable(name = "admin_roles")
+//    private Set<Role>roles = new HashSet<>();
     public Admin() {
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles();
+        return null;
         //Arrays.asList(new SimpleGrantedAuthority("ADMIN"));
     }
 

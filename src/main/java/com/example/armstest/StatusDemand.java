@@ -16,6 +16,7 @@ public class StatusDemand {
     private String master;
     private Date time;
     private Long demand_id;
+    private Long demand_list_id;
 
     public StatusDemand() {
     }

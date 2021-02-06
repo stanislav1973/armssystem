@@ -23,9 +23,9 @@ public class Demand {
 
     public Demand() {
     }
-//        @OneToMany
-//    @JoinColumn(name = "demand_list_id")
-//    List<Demand> demandList = new ArrayList<>();
+        @OneToMany
+    @JoinColumn(name = "demand_list_id")
+    List<Demand> demandList = new ArrayList<>();
     @PrePersist
     void timedAt() {
         this.time = new Date();
