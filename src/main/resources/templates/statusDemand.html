@@ -8,7 +8,7 @@
 </head>
 <body>
 <!--<a th:href="@{/}">Домашняя страеица</a><br/>-->
-<div th:switch="${statusDemand}">
+<div th:switch="${statusDemandD}">
     <h2 th:case="null">No!</h2>
     <div th:case="*">
         <h2>Таблица заявок на выполнение</h2>
@@ -16,18 +16,18 @@
             <thead>
             <tr>
                 <th>Мастер</th>
-                <th>Время закрытия заявки</th>
+                <th>Время открытия заявки</th>
                 <th>Номер заявки</th>
 
             </tr>
             </thead>
             <tbody>
-            <tr th:each=" st: ${statusDemand}">
+            <tr th:each=" st: ${statusDemandD}">
                 <td th:text="${st.master}"></td>
                 <td th:text="${st.time}"></td>
                 <td th:text="${st.demand_id}"></td>
-<!--                <td><a th:href="@{/editTableDemand/{id}(id=${u.id})}">Edit</a></td>-->
-<!--                <td><a th:href="@{/deleteDemand/{id}(id=${u.id})}">Delete</a></td>-->
+                <td><a th:href="@{/editStatusDemand/{id}(id=${st.id})}">Добавить мастера на выполнение заявки</a></td>
+                <td><a th:href="@{/deleteStatusDemand/{id}(id=${st.id})}">Delete</a></td>
             </tr>
             </tbody>
         </table>
