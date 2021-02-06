@@ -63,7 +63,7 @@ PasswordEncoder passwordEncoder;
         return "redirect:/tableDemand";
     }
     @GetMapping("/deleteDemand/{id}")
-    public String deleteDemand(@PathVariable("id") long id, Model model) {
+    public String deleteDemand(@PathVariable("id") long id) {
         Demand demand = demandRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         demandRepo.delete(demand);
