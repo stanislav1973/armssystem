@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/}">Домашняя страеица</a><br/>
+<div th:switch="${tDemand}">
+    <h2 th:case="null">No!</h2>
+    <div th:case="*">
+        <h2>Таблица заявок</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Описание заявки </th>
+                <th>Статус</th>
+                <th>Фамилия</th>
+                <th>Отдел</th>
+                <th>Время подачи
+                <th>Статус состояния заявки</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="u: ${tDemand}">
+                <td th:text="${u.demand_desc}"></td>
+                <td th:text="${u.status}"></td>
+                <td th:text="${u.user}"></td>
+                <td th:text="${u.office}"></td>
+                <td th:text="${u.time}"></td>
+                <td th:text="${u.accepted}"></td>
+                <td><a th:href="@{/editTableDemand/{id}(id=${u.id})}">Edit</a></td>
+                <td><a th:href="@{/deleteDemand/{id}(id=${u.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a th:href="@{/addUser}">Добавить пользователя</a></p><hr>
+<h2>Просмотр таблиц </h2>
+    <p><a th:href="@{/device}">Устройства</a></p>
+    <p><a th:href="@{/statusDemand}">Статус вывполнения заявки</a></p>
+    <p><a th:href="@{/findduild}">Сборка пользователя</a></p>
+
+</div>
+</body>
+</html>

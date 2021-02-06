@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Редактировать состояния заявки</h2>
+<form method="post" th:action="@{/editTableDemand/{id} (id=${editTable.id})}" th:object="${editTable}">
+<div>
+
+    <p><label for="office">Редактируйте заявку</label></p>
+    <input type="text" th:field="*{accepted}" id="office" placeholder="Office">
+    <input type="submit" value="Update User">
+</div>
+</form>
+</body>
+</html>

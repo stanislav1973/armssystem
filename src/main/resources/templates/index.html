@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<h2>Добро пожаловать на страницу администратора</h2>
+
+<!--<a th:href="@{/login}">login page</a><br/>-->
+<!--<a th:href="@{/registration}">registration page</a><br/>-->
+<p>Нажмите на заявку <a th:href="@{/demandForm}">Завки</a> и опишите вашу пробему</p>
+<a th:href="@{/tableDemand}">admin page</a><br/>
+<p th:text="${user}"></p>
+<form th:if="${user!='anonymous'}" th:action="@{/logout}" method="post">
+    <p><input type="submit" value="выход из системы"></p>
+</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<a th:href="@{/}">Домашняя страеица</a><br/>-->
+<div th:switch="${statusDemand}">
+    <h2 th:case="null">No!</h2>
+    <div th:case="*">
+        <h2>Таблица заявок</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Мастер</th>
+                <th>Время закрытия заявки</th>
+                <th>Номер заявки</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each=" st: ${statusDemand}">
+                <td th:text="${st.master}"></td>
+                <td th:text="${st.time}"></td>
+                <td th:text="${st.demand_id}"></td>
+<!--                <td><a th:href="@{/editTableDemand/{id}(id=${u.id})}">Edit</a></td>-->
+<!--                <td><a th:href="@{/deleteDemand/{id}(id=${u.id})}">Delete</a></td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+<!--//</div>-->
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>База данных</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/demandForm}" th:object="${demand}">
+    <a th:href="@{/}">Домашняя страеица</a><br/>
+
+    <p><b>Заявка</b></p>
+    <label>
+        <textarea th:field="*{demand_desc}"></textarea>
+    </label><br/><br/>
+    <hr><label>Фамилия Имя:
+        <input type="text" th:field="*{user}">
+    </label><br/><br/>
+    <label>Отдел:
+       <input type="text" th:field="*{office}">
+    </label><br/><br/>
+    <label>Статус заявки /срочно
+        <input type="checkbox" th:name="status" th:checked="${demand.status}">
+    </label><br/><br/>
+    <p><input type="submit" value="Отправить"/></p>
+</form>
+</body>
+</html>
