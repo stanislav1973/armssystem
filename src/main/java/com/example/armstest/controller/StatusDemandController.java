@@ -10,20 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
-//@RequestMapping("/statusDemand")
 public class StatusDemandController {
     private StatusDemandRepo statusDemandRepo;
     private DemandRepo demandRepo;
     @Autowired
     public StatusDemandController(StatusDemandRepo statusDemandRepo) {
         this.statusDemandRepo = statusDemandRepo;
-    }
-
-    @ModelAttribute(name = "demand")
-    public Demand demand(){
-       return  new Demand();
     }
 
     @GetMapping("/statusDemand")
@@ -35,12 +31,19 @@ public class StatusDemandController {
     public String statusDemandControllerId(@PathVariable("id") long id,Model model){
         StatusDemand statusDemand = statusDemandRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Exception" + id));
         model.addAttribute("statusD",statusDemand);
-        return "statusDemand";
+        return "editStatusDemand";
     }
 
     @PostMapping("/editStatusDemand/{id}")
-    public String postStatusDemandController(@PathVariable("id") long id, @Valid StatusDemand statusDemand){
-        statusDemandRepo.save(statusDemand);
+    public String postStatusDemandController(@PathVariable("id") long id,@Valid StatusDemand statusDemand){
+        List<StatusDemand> list = new ArrayList<>();
+        statusDemandRepo.findAll().forEach(list::add);
+       for(StatusDemand sd:list){
+           statusDemand.setDemand_list_id(sd.getDemand_list_id());
+            statusDemand.setDemand_id(sd.getDemand_id());
+            statusDemand.setTime(sd.getTime());
+        }
+       statusDemandRepo.save(statusDemand);
         return "redirect:/statusDemand";
     }
 
@@ -50,6 +53,6 @@ public class StatusDemandController {
         StatusDemand statusDemand = statusDemandRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         statusDemandRepo.delete(statusDemand);
-        return "redirect:/tableDemand";
+        return "redirect:/statusDemand";
     }
 }

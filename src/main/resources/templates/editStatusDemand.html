@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>APM</title>
+    <title>Title</title>
 </head>
 <body>
+<h2>Редактировать состояния заявки</h2>
+<form method="post" th:action="@{/editStatusDemand/{id} (id=${statusD.id})}" th:object="${statusD}">
+    <div>
 
+        <p><label for="введите фамилию мастера">Назначить мастера на выполнения заявки</label></p>
+        <p><input type="text" th:field="*{master}" id="введите фамилию мастера" placeholder="Введите Фамилию мастера"></p><br/>
+               <input type="submit" value="Обновить статус заявки">
+    </div>
+</form>
 </body>
 </html>

@@ -11,14 +11,13 @@
 <div th:switch="${statusDemandD}">
     <h2 th:case="null">No!</h2>
     <div th:case="*">
-        <h2>Таблица заявок на выполнение</h2>
+        <h2>Таблица заявок назначения на выполнения заявки</h2>
         <table>
             <thead>
             <tr>
                 <th>Мастер</th>
                 <th>Время открытия заявки</th>
                 <th>Номер заявки</th>
-
             </tr>
             </thead>
             <tbody>
@@ -33,5 +32,6 @@
         </table>
     </div>
 </div>
+<a th:href="@{/tableDemand}">Таблицы</a>
 </body>
 </html>
