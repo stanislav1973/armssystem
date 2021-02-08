@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>APM</title>
+    <style>
+        ul.hr {
+            margin: 0;
+            padding: 9px;
+        }
+        ul.hr li {
+            display: inline;
+            margin-right: 50px;
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+<form>
+<ul class="hr">
+       <li><input type="submit" value="найти"/></li>
+    <li>Лилибдж</li>
+    <li>поиск пользователя по Фамилии</li>
+</ul>
+<h2>Таблица  пользователей</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Номер</th>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчества</th>
+        <th>конфигурация ПК</th>
+        <th>Отдел</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="u: ${userAd}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.family}"></td>
+        <td th:text="${u.surname}"></td>
+        <td th:text="${u.patronymic}"></td>
+        <td th:text="${u.build}"></td>
+        <td th:text="${u.office}"></td>
+        <td><a th:href="@{/editUserAdmin/{id}(id=${u.id})}">Edit</a></td>
+        <td><a th:href="@{/deleteUserAdmin/{id}(id=${u.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</form>
+</body>
+</html>

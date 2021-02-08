@@ -22,6 +22,9 @@ public class Admin implements UserDetails{
     private Long id;
     private String password;
     private String username;
+    private String family;
+    private String surname;
+    private String patronymic;
     private String fio;
     private String build;
     private String office;
