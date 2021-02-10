@@ -5,26 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <title>APM</title>
-    <style>
-        ul.hr {
-            margin: 0;
-            padding: 9px;
-        }
-        ul.hr li {
-            display: inline;
-            margin-right: 50px;
-            padding: 6px;
-        }
-    </style>
-</head>
 <body>
-<form>
-<ul class="hr">
-       <li><input type="submit" value="найти"/></li>
-    <li>Лилибдж</li>
-    <li>поиск пользователя по Фамилии</li>
-</ul>
+<p><a th:href="@{/tableDemand}">Выход</a></p>
 <h2>Таблица  пользователей</h2>
+<form method="post" th:action="@{/editUserAdmin}">
 <table>
     <thead>
     <tr>
@@ -37,7 +21,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="u: ${userAd}">
+    <tr th:each="u: ${fUserAd}">
         <td th:text="${u.id}"></td>
         <td th:text="${u.family}"></td>
         <td th:text="${u.surname}"></td>
@@ -49,6 +33,11 @@
     </tr>
     </tbody>
 </table>
+    <p><label>
+        <input type="text" name="family">
+    </label>
+    <input type="submit" value="найти"></p>
+    <h4>Найти пользователя по фамилии</h4>
 </form>
 </body>
 </html>

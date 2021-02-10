@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<form method="post" >
+<div th:switch="${fUserAd}">
+    <h2 th:case="null">No!</h2>
+    <div th:case="*">
+        <h2>Таблица назначения на выполнения заявки </h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each=" st: ${fUserAd}">
+                <td th:text="${st.family}"></td>
+                <td th:text="${st.surname}"></td>
+                <td th:text="${st.patronymic}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<p><a th:href="@{/tableDemand}">Выход</a></p>
+</form>
 </body>
 </html>

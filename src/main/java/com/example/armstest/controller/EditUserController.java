@@ -21,7 +21,7 @@ public class EditUserController {
     }
 
     @GetMapping("/searchUser")
-    public String findUserAdminController(Model model,String family){
+    public String findUserAdminController(Model model){
         for(Admin s:admin){
         model.addAttribute("fUserAd",userAdminRepo.findAllByFamily(s.getFamily()));}
         return "searchUser";
@@ -30,21 +30,14 @@ public class EditUserController {
     @GetMapping("/editUserAdmin")
     public String userAdminControllerGet(Model model){
         model.addAttribute("fUserAd",userAdminRepo.findAll());
-        model.addAttribute("userAd",new Admin());
         return "editUserAdmin";
     }
     @PostMapping("/editUserAdmin")
     public String searchUserAdminControllerPost(Model model,@RequestParam(name = "family")String family){
-        log.info("Test "  + family);
         admin = userAdminRepo.findAllByFamily(family);
-        log.info("Test "  + admin);
 //        model.addAttribute("searchUserAd", admin);
 //        model.addAttribute("searchUserAd",userAdminRepo.findAllByFamily(family));
         return"redirect:/searchUser";
     }
-//    @PostMapping("/editUserAdmin")
-//    public String userAdminControllerPost(){
-//        return "redirect:/searchUser";
-//    }
-}
+    }
 
