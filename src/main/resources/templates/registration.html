@@ -9,10 +9,14 @@
 <h2>Register Page</h2>
 
 <form method="post" th:action="@{/registration}">
-    <label>Username: </label>
-    <input type="text" name="username"/><br/>
-    <label>Password: </label>
-    <input type="password" name="password"/><br/>
+    <label>Логин: </label>
+    <label>
+        <input type="text" name="username"/>
+    </label><br/>
+    <label>Введите пароль: </label>
+    <label>
+        <input type="password" name="password"/>
+    </label><br/>
     <input type="submit" value="Register"/>
     </form>
 </body>

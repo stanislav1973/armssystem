@@ -21,7 +21,8 @@
     <label>Отдел:
        <input type="text" th:field="*{office}">
     </label><br/><br/>
-    <label>Статус заявки /срочно
+    <label>Статус заявки: срочно
+
         <input type="checkbox" th:name="status" th:checked="${demand.status}">
     </label><br/><br/>
     <p><input type="submit" value="Отправить"/></p>
