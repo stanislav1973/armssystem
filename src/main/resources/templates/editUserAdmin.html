@@ -28,7 +28,7 @@
         <td th:text="${u.patronymic}"></td>
         <td th:text="${u.build}"></td>
         <td th:text="${u.office}"></td>
-        <td><a th:href="@{/editUserAdmin/{id}(id=${u.id})}">Edit</a></td>
+        <td><a th:href="@{/editUser/{id}(id=${u.id})}">Edit</a></td>
         <td><a th:href="@{/deleteUserAdmin/{id}(id=${u.id})}">Delete</a></td>
     </tr>
     </tbody>

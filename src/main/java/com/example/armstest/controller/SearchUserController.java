@@ -19,7 +19,11 @@ public class SearchUserController {
     public SearchUserController(UserAdminRepo userAdminRepo) {
         this.userAdminRepo = userAdminRepo;
     }
-
+    @GetMapping("/editUserAdmin")
+    public String userAdminControllerGet(Model model){
+        model.addAttribute("fUserAd",userAdminRepo.findAll());
+        return "editUserAdmin";
+    }
     @GetMapping("/searchUser")
     public String findUserAdminController(Model model){
         for(Admin s:admin){
@@ -27,11 +31,6 @@ public class SearchUserController {
         return "searchUser";
     }
 
-    @GetMapping("/editUserAdmin")
-    public String userAdminControllerGet(Model model){
-        model.addAttribute("fUserAd",userAdminRepo.findAll());
-        return "editUserAdmin";
-    }
     @PostMapping("/editUserAdmin")
     public String searchUserAdminControllerPost(Model model,@RequestParam(name = "family")String family){
         admin = userAdminRepo.findAllByFamily(family);
@@ -39,5 +38,5 @@ public class SearchUserController {
 //        model.addAttribute("searchUserAd",userAdminRepo.findAllByFamily(family));
         return"redirect:/searchUser";
     }
-    }
+}
 

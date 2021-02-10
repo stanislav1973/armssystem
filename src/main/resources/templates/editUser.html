@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>АРМ</title>
 </head>
 <body>
-$END$
+<h2>Редактировать пользователя</h2>
+<form method="post" th:action="@{/editUser/{id} (id=${editUserU.id})}" th:object="${editUserU}">
+    <div>
+        <p><label>
+            Фамилия : <input type="text" th:field="*{family}">
+        </label></p><br/>
+        <p><label>
+             Имя : <input type="text" th:field="*{surname}">
+        </label></p><br/>
+        <p><label>
+            Отчества : <input type="text" th:field="*{patronymic}">
+        </label></p><br/>
+        <p><label>
+            Отдел : <input type="text" th:field="*{office}">
+        </label></p><br/>
+        <p><label>
+            Сборка ПК : <input type="text" th:field="*{build}">
+        </label></p><br/>
+        <input type="submit" value="Сохранить">
+    </div>
+</form>
 </body>
 </html>
